@@ -1,3 +1,7 @@
+function copyToClipboard(code) {
+  navigator.clipboard.writeText(code);
+}
+
 $(window).on('load', function() {
     "use strict";
 
