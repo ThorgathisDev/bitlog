@@ -94,7 +94,49 @@
 
 
 </header>
-
+<style>
+	#snackbar {
+	  visibility: hidden;
+	  min-width: 250px;
+	  margin-left: -125px;
+	  background-color: #333;
+	  color: #fff;
+	  text-align: center;
+	  border-radius: 2px;
+	  padding: 16px;
+	  position: fixed;
+	  z-index: 1;
+	  left: 50%;
+	  bottom: 30px;
+	  font-size: 17px;
+	}
+	
+	#snackbar.show {
+	  visibility: visible;
+	  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	}
+	
+	@-webkit-keyframes fadein {
+	  from {bottom: 0; opacity: 0;} 
+	  to {bottom: 30px; opacity: 1;}
+	}
+	
+	@keyframes fadein {
+	  from {bottom: 0; opacity: 0;}
+	  to {bottom: 30px; opacity: 1;}
+	}
+	
+	@-webkit-keyframes fadeout {
+	  from {bottom: 30px; opacity: 1;} 
+	  to {bottom: 0; opacity: 0;}
+	}
+	
+	@keyframes fadeout {
+	  from {bottom: 30px; opacity: 1;}
+	  to {bottom: 0; opacity: 0;}
+	}
+	</style>
 <!-- main layout -->
 <main class="content-2">
 	
@@ -109,6 +151,8 @@
 
 				<!-- info -->
 				<h1 class="mb-2 mt-0">Обновление криптовалют</h1>
+				<!-- без заголовка -->
+
 			</div>
 			
 			<!-- scroll down mouse wheel -->
@@ -148,7 +192,6 @@
 
 			</div>
 		</div>
-		
 	</section>
 
 	<!-- section about -->
@@ -341,8 +384,9 @@
 		</div>
 		
 	</section>
-
 	<!-- section works -->
+
+	
 	<section id="works">
 
 		<div class="container">
@@ -370,7 +414,6 @@
 			
 			<!-- portolio wrapper -->
 			<div class="row portfolio-wrapper">
-
 				<!-- portfolio item -->
 				<div class="col-md-4 col-sm-6 grid-item tech">
 					<a href="#small-dialog" class="work-content">
@@ -390,9 +433,8 @@
 						<img src="https://via.placeholder.com/590x280" alt="Title" />
 						<h2>Bitnance</h2>
 						<p>Сдесь вы можете посмотреть курсы валют. </p>
-						<a id ="Copied" class="btn btn-default" onclick="copyToClipboard('mc.1bitlog.ru')" 
-						aria-hidden="true" title="Some tooltip text!" data-toggle="tooltip" data-trigger="click">На сервер</a>
-
+						<a id ="Copied" class="btn btn-default" onclick="copyToClipboard('mc.1bitlog.ru'); myFunction()">На сервер</a>
+						<div id="snackbar">Скопированно: mc.1bitlog.ru</div>		
 					</div>
 				</div>
 				
@@ -416,7 +458,8 @@
 						<h2>Обменник</h2>
 						<p>Сдесь вы можете обменять валюты на CU и обратно.</p>
 						<p>Найти обменники можно по всему спавну: цитадели, баре, мельнице</p>
-						<a id ="Copied" class="btn btn-default" onclick="copyToClipboard('mc.1bitlog.ru')">На сервер</a>
+						<a id ="Copied" class="btn btn-default" onclick="copyToClipboard('mc.1bitlog.ru'); myFunction()">На сервер</a>
+						<div id="snackbar">Скопированно: mc.1bitlog.ru</div>
 					</div>
 				</div>
 				<!-- portfolio item -->
@@ -439,7 +482,8 @@
 						<h2>Новая системма майнинга</h2>
 						<p>При установке майнера теперь нужно выбрать криптовалюту например MATIC - Polygon</p>
 						<p>Дальше всё просто установите в майнер материнку, процессор, ОЗУ , БП и SSD, (Если есть Видеокарта - поставьте). Теперь поставьте рядом генератор, загрузите его углюм и начинайте майнить новую крипту</p>
-						<a id ="Copied" class="btn btn-default" onclick="copyToClipboard('mc.1bitlog.ru')">На сервер</a>
+						<a id ="Copied" class="btn btn-default" onclick="copyToClipboard('mc.1bitlog.ru'); myFunction()">На сервер</a>
+						<div id="snackbar">Скопированно: mc.1bitlog.ru</div>
 					</div>
 				</div>
 			</div>
@@ -515,67 +559,14 @@
 					<!-- contact info -->
 					<div class="contact-info">
 						<h3 class="wow fadeInUp">Предлагайте свои идеи</h3>
-						<p class="wow fadeInUp">Не любите формы? Напишите в <a href="https://discordapp.com/users/704320325285838949" target="_blank">Discord</a> 👋</p>
+						<p class="wow fadeInUp">Напишите мне в <a href="https://discordapp.com/users/704320325285838949" target="_blank">Discord</a> 👋</p>
 					</div>
 				</div>
-
-				<div class="col-md-8">
-					<!-- Contact Form -->
-					<form class="contact-form mt-6" action="https://sheetdb.io/api/v1/fkl1ahc8yl2d3" method="post" id="sheetdb-form">
-						
-						<div class="messages"></div>
-						
-						<div class="row">
-							<div class="column col-md-6">
-								<!-- Discord input -->
-								<div class="form-group">
-									<input type="text" class="form-control" name="data[discord]" id="InputName" placeholder="Дискорд" required="required" data-error="Дискорд необходим.">
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-							
-							<div class="column col-md-6">
-								<!-- Email input -->
-								<div class="form-group">
-									<input type="text" class="form-control" id="InputSub" name="data[subject]" placeholder="Тема" required="required" data-error="Тема необходима.">
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-							<div class="column col-md-12">
-								<!-- Message textarea -->
-								<div class="form-group">
-									<textarea name="data[message]" id="InputMessage" class="form-control" rows="5" placeholder="Сообщение" required="required" data-error="Сообщение необходима."></textarea>
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-						</div>
-						<button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Отправить</button><!-- Send Button -->
-					</form>
-
-					<script>
-						var form = document.getElementById('sheetdb-form');
-						form.addEventListener("submit", e => {
-						  e.preventDefault();
-						  fetch(form.action, {
-							  method : "POST",
-							  body: new FormData(document.getElementById("sheetdb-form")),
-						  }).then(
-							  response => response.json()
-						  ).then((html) => {
-						  });
-						});
-					  </script>
-					<!-- Contact Form end -->
-				</div>
-
 			</div>
-
 		</div>
-
 	</section>
 
-	<div class="spacer" data-height="96"></div>
-	
+	<div class="spacer" data-height="10"></div>
 </main>
 
 <!-- Go to top button -->
@@ -599,6 +590,12 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/custom.js"></script>
 
-
+<script>
+	function myFunction() {
+	  var x = document.getElementById("snackbar");
+	  x.className = "show";
+	  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+	}
+	</script>
 </body>
 </html>
